@@ -1,0 +1,53 @@
+# Ignore Maven target directories
+target/
+**/target/
+
+# Ignore Eclipse and IntelliJ IDEA project files
+*.class
+*.log
+*.iml
+*.ipr
+*.iws
+.idea/
+.project
+.classpath
+.settings/
+
+# Ignore Maven-specific files
+.mvn/
+!**/.mvn/wrapper/maven-wrapper.jar
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build artifacts and dependency caches
+*.war
+*.ear
+*.jar
+*.zip
+*.tar.gz
+*.7z
+
+# Ignore log files and temp files
+*.log
+hs_err_pid*
+
+# Ignore environment configuration files
+.env
+
+# Ignore any other IDE or tool-specific files
+.vscode/
+*.swp
+*.bak
+
+# Ignore output and generated files
+out/
+dist/
+bin/
+node_modules/
+**/bin/
+**/build/
+**/out/
+**/.idea/
+**/.vscode/
