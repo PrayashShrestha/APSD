@@ -1,0 +1,62 @@
+# .NET Core / .NET Build Artifacts
+bin/
+obj/
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# NuGet Packages
+*.nupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Visual Studio (if used)
+*.vs/
+*.sln
+*.vcxproj
+
+# macOS-Specific Files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Dependency Directories
+node_modules/
+
+# Test and Coverage Results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# User-Specific Files
+*.bak
+*.cache
+*.log
+*.swp
+*.tmp
+
+# Miscellaneous
+*.pidb
+*.svclog
+*.scc
