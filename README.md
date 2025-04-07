@@ -1,6 +1,6 @@
 # APSD Lab 2
 
-### Task1 : Functional Requirements:
+### Task 1 : Functional Requirements:
 
 - `Register Dentists`: System allows Office Manager to register Dentists with First Name, Last Name, Phone, Email, Specialization, and assigns a unique ID.
 - `Enroll Patients`: System enables Office Manager to enroll Patients with First Name, Last Name, Phone, Email, Address, Date of Birth, and assigns a unique ID.
@@ -18,6 +18,6 @@
 - `Manage Surgery Information`: System maintains Surgery details: name, address, and phone number.
 - `Add New Surgeries`: Office Manager can add new Surgeries with name, address, and phone number.
 
-### Task2 : UML Diagram
+### Task 2 : UML Diagram
 
 ![alt text](UML.jpg)
