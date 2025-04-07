@@ -1,5 +1,5 @@
 # .NET Core Build Output
-*/**/bin/
+bin/
 obj/
 *.csproj.user
 
