@@ -53,3 +53,9 @@ Dependency Injection (DI) is when Spring gives a class the tools it needs (like 
 Spring does DI by using a configuration file or annotations (like @Autowired) to automatically “inject” the tools into your code.
 
 ---
+
+---
+
+## Lab 4
+
+![alt text](image-2.png)
