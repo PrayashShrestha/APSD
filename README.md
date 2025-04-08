@@ -3,9 +3,9 @@
 ## Singal Command to run the docker container and for migration:
 
 ```bash
-chmod +x run_ads_db.sh
+chmod +x run_bank_db.sh
 
-./run_ads_db.sh
+./run_bank_db.sh
 ```
 
 ---
@@ -25,80 +25,72 @@ http://localhost:8080
 ## Setup for the PG admin:
 
 - First go to http://localhost:8080 and then enter the credentials:
-  - Email: admin@ads.com
-  - Password: admin_password
+  - Email: admin@bank.com
+  - Password: bank_password
     ![alt text](image.png)
     ![alt text](image-1.png)
 - Add New Server in PGAdmin:
   - Host: postgres
   - Port: 5432
-  - Username: ads_user
-  - Password: ads_password
-  - Database: ads_dental_db
+  - Username: bank_user
+  - Password: bank_password
+  - Database: bank_db
 
 ---
 
 ---
 
-Tables:
-Appointment table:
-![alt text](image-3.png)
+## Domain Modeling:
 
-Bill Table:
-![alt text](image-4.png)
+![alt text](<screenshots/domain modeling.png>)
 
-Dentist Table:
-![alt text](image-5.png)
+## ER Diagram
 
-Patient Table:
-![alt text](image-6.png)
-
-Surgery:
-![alt text](image-7.png)
+![alt text](<screenshots/ER Diagram.png>)
 
 ## Now using the Query Tool
 
 ### SQL Queries in Action:
 
-- `Display the list of ALL Dentists registered in the system, sorted in ascending
-order of their lastNames`
+- `Display the list of ALL the Accounts registered in the banking system, sorted in
+descending order of the Account Balances. Include the Customer data for each
+Account. `
 
 ```sql
-SELECT * FROM Dentist ORDER BY last_name ASC;
+SELECT
+    A.accountId,
+    A.accountNumber,
+    A.balance,
+    C.customerId,
+    C.firstName,
+    C.lastName,
+	C.telephonenumber
+FROM Account A
+JOIN Customer_Account CA ON A.accountId = CA.accountId
+JOIN Customer C ON CA.customerId = C.customerId
+ORDER BY A.balance DESC;
 ```
 
-![alt text](image-2.png)
+![alt text](screenshots/image1.png)
 
-- `Display the list of ALL Appointments for a given Dentist by their dentist_Id
-number. Include in the result, the Patient information.`
+- `Display the list of ALL Transactions with a Value Amount greater than 500.00.
+Include in the result, the Account Numbers. And sort the list in ascending order
+of the Tansaction Date and Time. `
 
 ```sql
-SELECT a.*, p.first_name AS patient_first_name, p.last_name AS patient_last_name
-FROM Appointment a
-JOIN Patient p ON a.patient_id = p.patient_id
-WHERE a.dentist_id = 1;
+SELECT
+    T.transactionId,
+    T.transactionNumber,
+    T.description,
+    T.valueAmount,
+    T.transactionDate,
+    T.transactionTime,
+    T.transactionType,
+    A.accountNumber
+FROM Transaction T
+JOIN Account A ON T.accountId = A.accountId
+WHERE T.valueAmount > 500.00
+ORDER BY T.transactionDate ASC, T.transactionTime ASC;
 ```
 
-![alt text](image-8.png)
-
-- `Display the list of ALL Appointments that have been scheduled at a Surgery
-Location` (for this I'm using S15)
-
-```sql
-SELECT a.*, d.first_name AS dentist_first_name, d.last_name AS dentist_last_name, p.first_name AS patient_first_name, p.last_name AS patient_last_name
-FROM Appointment a
-JOIN Dentist d ON a.dentist_id = d.dentist_id
-JOIN Patient p ON a.patient_id = p.patient_id
-WHERE a.surgery_no = 'S15';
-```
-
-- `Display the list of the Appointments booked for a given Patient on a given Date.`
-
-```sql
-SELECT a.*, d.first_name AS dentist_first_name, d.last_name AS dentist_last_name
-FROM Appointment a
-JOIN Dentist d ON a.dentist_id = d.dentist_id
-WHERE a.patient_id = 'P105' AND a.appointment_date = '2013-09-14';
-```
-
-![alt text](image-9.png)
+![alt text](screenshots/image2.png)

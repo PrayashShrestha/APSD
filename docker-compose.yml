@@ -3,32 +3,32 @@ services:
     image: postgres:latest
     container_name: postgres_db
     environment:
-      POSTGRES_USER: ads_user
-      POSTGRES_PASSWORD: ads_password
-      POSTGRES_DB: ads_dental_db
+      POSTGRES_USER: bank_user
+      POSTGRES_PASSWORD: bank_password
+      POSTGRES_DB: bank_db
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - ads_network
+      - bank_network
 
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@ads.com
-      PGADMIN_DEFAULT_PASSWORD: admin_password
+      PGADMIN_DEFAULT_EMAIL: admin@bank.com
+      PGADMIN_DEFAULT_PASSWORD: bank_password
     ports:
       - "8080:80"
     depends_on:
       - postgres
     networks:
-      - ads_network
+      - bank_network
 
 volumes:
   postgres_data:
 
 networks:
-  ads_network:
+  bank_network:
     driver: bridge
