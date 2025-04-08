@@ -2,6 +2,8 @@
 
 ## Singal Command to run the docker container and for migration:
 
+### Task 3
+
 ```bash
 chmod +x run_bank_db.sh
 
@@ -25,10 +27,10 @@ http://localhost:8080
 ## Setup for the PG admin:
 
 - First go to http://localhost:8080 and then enter the credentials:
+
   - Email: admin@bank.com
   - Password: bank_password
-    ![alt text](image.png)
-    ![alt text](image-1.png)
+
 - Add New Server in PGAdmin:
   - Host: postgres
   - Port: 5432
@@ -40,13 +42,19 @@ http://localhost:8080
 
 ---
 
+### Task 1
+
 ## Domain Modeling:
 
 ![alt text](<screenshots/domain modeling.png>)
 
+### Task 2
+
 ## ER Diagram
 
 ![alt text](<screenshots/ER Diagram.png>)
+
+### Task 4
 
 ## Now using the Query Tool
 
